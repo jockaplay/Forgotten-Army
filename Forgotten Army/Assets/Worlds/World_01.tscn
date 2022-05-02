@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Player/navePlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Enemy/Enemy_001.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Enemy/Enemy_002.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Spr/Lifebar.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Objects/PowerUps/life.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Enemy/Spawner.tscn" type="PackedScene" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 63, 14 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 14, 63, 9 )
+
+[node name="World" type="Node2D"]
+
+[node name="navePlayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 513, 324 )
+
+[node name="Camera2D" type="Camera2D" parent="navePlayer"]
+position = Vector2( 2, -1 )
+current = true
+zoom = Vector2( 0.6, 0.6 )
+process_mode = 0
+smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 70.0
+margin_bottom = 20.0
+rect_scale = Vector2( 2, 2 )
+max_value = 12.0
+step = 0.1
+value = 11.0
+texture_under = SubResource( 1 )
+texture_progress = SubResource( 2 )
+texture_progress_offset = Vector2( 0, 2 )
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ParallaxBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0235294, 0.027451, 0.0941176, 1 )
+
+[node name="Enemy_002" parent="." instance=ExtResource( 3 )]
+position = Vector2( 869, 200 )
+
+[node name="Enemy_003" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1080, 1502 )
+
+[node name="Enemy_004" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1197, 559 )
+
+[node name="Enemy_005" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1125, -1035 )
+
+[node name="Enemy_006" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2103, -299 )
+
+[node name="Enemy_007" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2368, 2000 )
+
+[node name="Enemy_001" parent="." instance=ExtResource( 2 )]
+position = Vector2( 311, 316 )
+
+[node name="Area2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 455, 301 )
+
+[node name="Spawner" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1441, 712 )
+
+[node name="Spawner2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -577, 234 )
+
+[node name="Spawner3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1561, -630 )
+
+[node name="Spawner4" parent="." instance=ExtResource( 6 )]
+position = Vector2( -103, 1794 )
