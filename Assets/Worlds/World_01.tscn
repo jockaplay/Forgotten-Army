@@ -1,0 +1,138 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Player/navePlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Enemy/Enemy_001.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Enemy/Enemy_002.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Spr/Lifebar.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Enemy/Spawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Spr/space.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Worlds/World_01.gd" type="Script" id=8]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 63, 14 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 14, 63, 9 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 63, 14 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 14, 63, 9 )
+
+[node name="World" type="Node2D"]
+script = ExtResource( 8 )
+mission = 2
+
+[node name="navePlayer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 513, 324 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 70.0
+margin_bottom = 20.0
+rect_scale = Vector2( 2, 2 )
+max_value = 10.0
+step = 0.1
+value = 10.0
+texture_under = SubResource( 1 )
+texture_progress = SubResource( 2 )
+texture_progress_offset = Vector2( 0, 2 )
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+
+[node name="power" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 7.0
+margin_top = 36.0
+margin_right = 70.0
+margin_bottom = 50.0
+rect_scale = Vector2( 2, 2 )
+max_value = 12.0
+step = 0.1
+value = 11.0
+texture_under = SubResource( 3 )
+texture_progress = SubResource( 4 )
+texture_progress_offset = Vector2( 0, 2 )
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_mirroring = Vector2( 200, 200 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 399, 0 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Sprite4" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 399 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Sprite5" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 399, 399 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 794, 0 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2( 794, 399 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 7.0
+margin_top = 68.0
+margin_right = 104.0
+margin_bottom = 84.0
+bbcode_text = "Colmeias: 0/2"
+text = "Colmeias: 0/2"
+scroll_active = false
+
+[node name="Enemy_002" parent="." instance=ExtResource( 3 )]
+position = Vector2( 977, 92 )
+
+[node name="Enemy_003" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2380, -194 )
+
+[node name="Enemy_004" parent="." instance=ExtResource( 3 )]
+position = Vector2( 457, -468 )
+
+[node name="Enemy_007" parent="." instance=ExtResource( 3 )]
+position = Vector2( 667, 1271 )
+
+[node name="Enemy_008" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2386, 1734 )
+
+[node name="Enemy_009" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1710, 149 )
+
+[node name="Enemy_001" parent="." instance=ExtResource( 2 )]
+position = Vector2( 99, 332 )
+
+[node name="Spawner" parent="." instance=ExtResource( 6 )]
+position = Vector2( 904, 527 )
+
+[node name="Spawner2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -577, 234 )

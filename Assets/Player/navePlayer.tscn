@@ -1,0 +1,200 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Assets/Player/navePlayer.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Spr/Nave_001-Sheet.png" type="Texture" id=2]
+
+[sub_resource type="Gradient" id=23]
+offsets = PoolRealArray( 0.0124224, 0.490683, 0.732919, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0.823242, 0, 1, 1, 1, 1, 0.662921, 1, 0.992157, 0.94902, 0 )
+
+[sub_resource type="GradientTexture" id=24]
+gradient = SubResource( 23 )
+
+[sub_resource type="Curve" id=26]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 29.0909 ), 0.0, 0.0, 0, 0, Vector2( 1, 25.4545 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=27]
+curve = SubResource( 26 )
+
+[sub_resource type="ParticlesMaterial" id=25]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 3, 1 )
+flag_disable_z = true
+direction = Vector3( -2, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 15.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel_random = 0.25
+radial_accel_curve = SubResource( 27 )
+color_ramp = SubResource( 24 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 288, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 352, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 2 )
+region = Rect2( 416, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 2 )
+region = Rect2( 448, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 2 )
+region = Rect2( 480, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 2 )
+region = Rect2( 512, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 544, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 11.5, 9 )
+
+[sub_resource type="Animation" id=21]
+resource_name = "Hurt"
+tracks/0/type = "value"
+tracks/0/path = NodePath("naveEffect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("naveEffect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="navePlayer" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -12, 0 )
+amount = 16
+lifetime = 0.2
+local_coords = false
+process_material = SubResource( 25 )
+
+[node name="nave" type="AnimatedSprite" parent="."]
+rotation = 1.5708
+frames = SubResource( 19 )
+frame = 14
+playing = true
+
+[node name="naveEffect" type="Sprite" parent="."]
+visible = false
+rotation = 1.5708
+texture = ExtResource( 2 )
+hframes = 19
+frame = 18
+
+[node name="coli" type="CollisionShape2D" parent="."]
+position = Vector2( -1.5, 0 )
+shape = SubResource( 20 )
+
+[node name="MainGun" type="Position2D" parent="."]
+position = Vector2( 15, 0 )
+
+[node name="RightGun" type="Position2D" parent="."]
+position = Vector2( 0, 13 )
+
+[node name="LeftGun" type="Position2D" parent="."]
+position = Vector2( 0, -13 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/Hurt = SubResource( 21 )
+anims/RESET = SubResource( 22 )
+
+[node name="cooldown" type="Timer" parent="."]
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.6, 0.6 )
+limit_left = -3000
+limit_top = -3000
+limit_right = 3000
+limit_bottom = 3000
+editor_draw_limits = true
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
