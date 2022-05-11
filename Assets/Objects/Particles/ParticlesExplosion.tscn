@@ -1,0 +1,136 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Assets/Spr/ball.png" type="Texture" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.00621118, 0.229814, 0.546584, 0.863354 )
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0.46875, 0, 1, 1, 0.796875, 0, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0.676136 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 60.0
+initial_velocity_random = 0.67
+angular_velocity = 240.0
+angular_velocity_random = 0.42
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="StreamTexture" id=13]
+load_path = "res://.import/ball.png-b5e066808c9978706116237bf6de6669.stex"
+
+[sub_resource type="GDScript" id=14]
+script/source = "extends Particles2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+var time = 0
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Particles2D2.emitting = true
+	$Particles2D2.one_shot = true
+func _process(delta):
+	time += delta
+	if time >= 2:
+		queue_free()
+"
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0, 0.335404, 0.813665, 1 )
+colors = PoolColorArray( 0.63916, 0.63916, 0.63916, 1, 0.423529, 0.423529, 0.423529, 1, 0.312699, 0.312699, 0.312699, 0.590654, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 10 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0.184091 ), 0.0, -0.0673582, 0, 0, Vector2( 1, 0 ), -0.257879, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+spread = 180.0
+initial_velocity = 120.0
+initial_velocity_random = 0.52
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 11 )
+
+[sub_resource type="StreamTexture" id=16]
+load_path = "res://.import/ball.png-b5e066808c9978706116237bf6de6669.stex"
+
+[sub_resource type="Gradient" id=17]
+offsets = PoolRealArray( 0, 0.621118, 1 )
+colors = PoolColorArray( 0.234375, 0.234375, 0.234375, 1, 0.709804, 0.709804, 0.709804, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=18]
+gradient = SubResource( 17 )
+
+[sub_resource type="Curve" id=19]
+_data = [ Vector2( 0, 0.570455 ), 0.0, -0.226044, 0, 0, Vector2( 1, 0 ), -1.26555, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=20]
+curve = SubResource( 19 )
+
+[sub_resource type="ParticlesMaterial" id=21]
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 49.02
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 20 )
+color = Color( 0.345098, 0.345098, 0.345098, 1 )
+color_ramp = SubResource( 18 )
+
+[node name="Particles2D" type="Particles2D"]
+emitting = false
+amount = 50
+lifetime = 1.5
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource( 12 )
+texture = SubResource( 13 )
+script = SubResource( 14 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+emitting = false
+amount = 25
+lifetime = 4.0
+one_shot = true
+speed_scale = 1.5
+explosiveness = 1.0
+process_material = SubResource( 15 )
+texture = SubResource( 16 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 0.91
+process_material = SubResource( 21 )
+texture = ExtResource( 1 )

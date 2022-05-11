@@ -1,28 +1,28 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Player/navePlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Enemy/Enemy_001.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Enemy/Enemy_002.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Spr/Lifebar.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Spr/Moldura.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Enemy/Spawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Spr/space.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Worlds/World_01.gd" type="Script" id=8]
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 63, 14 )
+[ext_resource path="res://Assets/Fonts/retro_computer_personal_use.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Assets/Spr/starsWP.png" type="Texture" id=10]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 14, 63, 9 )
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 63, 14 )
-
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 14, 63, 9 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 12
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 8 )
@@ -33,16 +33,21 @@ position = Vector2( 513, 324 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer"]
-margin_left = 7.0
-margin_top = 6.0
-margin_right = 70.0
-margin_bottom = 20.0
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+margin_right = 140.0
+margin_bottom = 71.0
 rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="TextureProgress" type="TextureProgress" parent="CanvasLayer"]
+margin_left = 2.0
+margin_top = 4.0
+margin_right = 65.0
+margin_bottom = 18.0
+rect_scale = Vector2( 2.05, 2.3 )
 max_value = 10.0
 step = 0.1
 value = 10.0
-texture_under = SubResource( 1 )
 texture_progress = SubResource( 2 )
 texture_progress_offset = Vector2( 0, 2 )
 stretch_margin_left = 3
@@ -51,15 +56,14 @@ stretch_margin_right = 3
 stretch_margin_bottom = 3
 
 [node name="power" type="TextureProgress" parent="CanvasLayer"]
-margin_left = 7.0
+margin_left = 2.0
 margin_top = 36.0
-margin_right = 70.0
+margin_right = 65.0
 margin_bottom = 50.0
-rect_scale = Vector2( 2, 2 )
+rect_scale = Vector2( 2.05, 2.3 )
 max_value = 12.0
 step = 0.1
-value = 11.0
-texture_under = SubResource( 3 )
+value = 12.0
 texture_progress = SubResource( 4 )
 texture_progress_offset = Vector2( 0, 2 )
 stretch_margin_left = 3
@@ -70,42 +74,243 @@ stretch_margin_bottom = 3
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-motion_mirroring = Vector2( 200, 200 )
+motion_mirroring = Vector2( 600, 600 )
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 7 )
 centered = false
 
 [node name="Sprite2" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 399, 0 )
+position = Vector2( 1196, 0 )
 texture = ExtResource( 7 )
 centered = false
 
-[node name="Sprite4" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 0, 399 )
-texture = ExtResource( 7 )
-centered = false
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2( 0.9, 0.9 )
+motion_mirroring = Vector2( 900, 900 )
 
-[node name="Sprite5" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 399, 399 )
-texture = ExtResource( 7 )
-centered = false
+[node name="StarsWp" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 304, 307 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
 
-[node name="Sprite3" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 794, 0 )
-texture = ExtResource( 7 )
-centered = false
+[node name="StarsWp2" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 139, 179 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
 
-[node name="Sprite6" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 794, 399 )
-texture = ExtResource( 7 )
-centered = false
+[node name="StarsWp3" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 441, 126 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp4" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 83, 456 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp5" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 341, 528 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp6" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 558, 313 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp7" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 17, 287 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp8" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( -48, 663 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp9" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 460.2, 298.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp10" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 295.2, 170.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp11" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 597.2, 117.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp12" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 239.2, 447.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp13" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 497.2, 519.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp14" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 714.2, 304.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp15" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 173.2, 278.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp16" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 108.2, 654.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp17" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 265.2, 416.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp18" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 100.2, 288.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp19" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 402.2, 235.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp20" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 44.2, 565.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp21" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 302.2, 637.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp22" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 519.2, 422.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp23" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( -21.8, 396.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp24" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( -86.8, 772.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp25" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 473.2, 645.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp26" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 308.2, 517.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp27" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 610.2, 464.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp28" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 252.2, 794.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp29" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 510.2, 866.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp30" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 727.2, 651.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp31" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 186.2, 625.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp32" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 121.2, 1001.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp33" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 57.2, 149.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp34" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( -107.8, 21.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp37" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 94.2, 370.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
+
+[node name="StarsWp38" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 311.2, 155.2 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 10 )
+offset = Vector2( 410, -136.667 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-margin_left = 7.0
-margin_top = 68.0
-margin_right = 104.0
-margin_bottom = 84.0
+margin_left = 9.0
+margin_top = 88.0
+margin_right = 129.0
+margin_bottom = 105.0
+custom_fonts/normal_font = SubResource( 5 )
 bbcode_text = "Colmeias: 0/2"
 text = "Colmeias: 0/2"
 scroll_active = false

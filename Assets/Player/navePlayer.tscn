@@ -159,7 +159,7 @@ process_material = SubResource( 25 )
 [node name="nave" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = SubResource( 19 )
-frame = 14
+frame = 15
 playing = true
 
 [node name="naveEffect" type="Sprite" parent="."]
@@ -195,6 +195,8 @@ limit_left = -3000
 limit_top = -3000
 limit_right = 3000
 limit_bottom = 3000
+smoothing_enabled = true
+smoothing_speed = 6.0
 editor_draw_limits = true
 
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

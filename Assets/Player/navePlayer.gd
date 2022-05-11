@@ -21,7 +21,7 @@ func _ready():
 func _physics_process(delta):
 	hpbar.max_value = maxVida
 	vida = clamp(vida, 0, maxVida)
-	get_parent().get_node("CanvasLayer/RichTextLabel").bbcode_text = "colméias: " + str(Global.killedCol) + "/" + str(Global.colmNumber)
+	get_parent().get_node("CanvasLayer/RichTextLabel").bbcode_text = "colmeias: " + str(Global.killedCol) + "/" + str(Global.colmNumber)
 	hpbar.value = vida
 	boostBar.value = power
 	boosty(delta, maxipower)

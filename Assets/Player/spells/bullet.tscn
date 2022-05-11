@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Spr/Bullets.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Player/spells/bullet.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Spr/ball.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -38,6 +39,12 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 7.5, 2.5 )
 
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0.0818181 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0454545 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=9]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
 [node name="Area2D" type="Area2D"]
 collision_layer = 8
 collision_mask = 5
@@ -45,16 +52,32 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
-frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -0.5, -0.5 )
 shape = SubResource( 8 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
 position = Vector2( -22, -0.5 )
 scale = Vector2( 3.2, 0.55 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( -4, 0 )
+lifetime = 1.5
+local_coords = false
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1 )
+spread = 3.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 10.0
+linear_accel = 57.16
+scale_amount_curve = SubResource( 10 )
+color = Color( 1, 0.835294, 0.309804, 1 )
+color_ramp = SubResource( 9 )
 
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

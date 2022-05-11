@@ -44,9 +44,8 @@ collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-modulate = Color( 1, 0.403922, 0.376471, 1 )
 frames = SubResource( 7 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

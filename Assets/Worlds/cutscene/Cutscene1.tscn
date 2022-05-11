@@ -276,7 +276,7 @@ process_material = SubResource( 25 )
 [node name="nave" type="AnimatedSprite" parent="navePlayer"]
 rotation = 1.5708
 frames = SubResource( 19 )
-frame = 8
+frame = 5
 playing = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -284,38 +284,19 @@ playing = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-motion_mirroring = Vector2( 200, 200 )
+motion_mirroring = Vector2( 600, 600 )
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
 texture = ExtResource( 4 )
 centered = false
 
 [node name="Sprite2" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 399, 0 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite4" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 0, 399 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite5" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 399, 399 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite3" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 794, 0 )
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite6" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 794, 399 )
+position = Vector2( 1196, 0 )
 texture = ExtResource( 4 )
 centered = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )

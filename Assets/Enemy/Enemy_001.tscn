@@ -46,6 +46,7 @@ canDrop = true
 [node name="body" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = SubResource( 6 )
+frame = 3
 playing = true
 
 [node name="coli" type="CollisionShape2D" parent="."]

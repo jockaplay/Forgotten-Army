@@ -42,13 +42,11 @@ func _physics_process(delta):
 		time = 0
 		velocity -= transform.x * speed
 	var _mv = move_and_slide(velocity)
-	if life <= 0:
-		death()
 
 func hit(value):
 	life -= value
 	
-func death():
+func death(_particle):
 	var a = rand_range(1, 5)
 	if a < 3:
 		var b = drop.instance()
@@ -56,4 +54,6 @@ func death():
 		get_parent().call_deferred("add_child", b)
 	if level == 1:
 		Global.protectionProgress += 1
+	if _particle != null:
+		get_parent().call_deferred("add_child", _particle)
 	queue_free()
