@@ -1,8 +1,8 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/Worlds/cutscene/CutScene1.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Spr/Space Background.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Spr/Nave_001-Sheet.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Spr/space.png" type="Texture" id=4]
 
 [sub_resource type="Gradient" id=23]
 offsets = PoolRealArray( 0.0124224, 0.490683, 0.732919, 1 )
@@ -253,6 +253,98 @@ tracks/5/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=32]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.4, 0.4 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Camera2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 933, 360 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("navePlayer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 931, 360 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("navePlayer:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "transition"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "change"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ColorRect2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
 [node name="Control" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -276,23 +368,19 @@ process_material = SubResource( 25 )
 [node name="nave" type="AnimatedSprite" parent="navePlayer"]
 rotation = 1.5708
 frames = SubResource( 19 )
-frame = 5
+frame = 3
 playing = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
-motion_mirroring = Vector2( 600, 600 )
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_mirroring = Vector2( 2559, 720 )
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 4 )
-centered = false
-
-[node name="Sprite2" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
-position = Vector2( 1196, 0 )
-texture = ExtResource( 4 )
+[node name="SpaceBackground" type="Sprite" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+self_modulate = Color( 0.5, 0.5, 0.5, 1 )
+texture = ExtResource( 2 )
 centered = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -301,7 +389,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "cutscene"
 anims/RESET = SubResource( 30 )
 anims/cutscene = SubResource( 31 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 32 )
+anims/transition = SubResource( 33 )

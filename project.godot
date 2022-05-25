@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Forgotten Army"
-run/main_scene="res://Assets/Worlds/World_01.tscn"
+run/main_scene="res://Assets/Worlds/Menus/Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -96,4 +96,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.0588235, 0.0627451, 0.0745098, 1 )
 environment/default_environment="res://default_env.tres"

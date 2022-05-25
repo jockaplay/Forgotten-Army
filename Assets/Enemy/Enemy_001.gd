@@ -11,18 +11,19 @@ func _ready():
 	reload = (randi() % 5 + 1) + 5
 
 func _process(delta):
-	timeb += delta
-	distance = position.distance_to(target.position)
-	if distance <= 450:
-		if $body.frame == 4:
-			if timeb >= reload:
-				shoot()
-	if life <= 0:
-		var a = partc.instance()
-		a.emitting = true
-		a.get_node("Particles2D").emitting = true
-		a.global_position = global_position
-		death(a)
+	if target != null:
+		timeb += delta
+		distance = position.distance_to(target.position)
+		if distance <= 450:
+			if $body.frame == 4:
+				if timeb >= reload:
+					shoot()
+		if life <= 0:
+			var a = partc.instance()
+			a.emitting = true
+			a.get_node("Particles2D").emitting = true
+			a.global_position = global_position
+			death(a)
 
 func shoot():
 	var b = bullet.instance()

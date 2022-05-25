@@ -1,13 +1,18 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Spr/Nave_001-Sheet.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Spr/space.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Spr/Space Background.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Worlds/Menus/Main.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Fonts/retro_computer_personal_use.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Assets/Spr/button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Spr/Enemy_001-Sheet.png" type="Texture" id=6]
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="DynamicFont" id=10]
@@ -18,18 +23,168 @@ font_data = ExtResource( 4 )
 size = 62
 font_data = ExtResource( 4 )
 
+[sub_resource type="Animation" id=12]
+resource_name = "BG"
+length = 50.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 50 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 9.53674e-07, 0 ), Vector2( -1279, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect3:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 25, 25.01, 50 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 9.53674e-07, 0 ), Vector2( -1279, 0 ), Vector2( 0, 0 ), Vector2( -1279, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect4:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3.92, 5.28, 9.3, 10.09, 10.68, 14.3, 14.89, 15.28, 16.06, 16.8, 18.7, 19.49, 22.62, 27.71, 29.07, 33.09, 33.88, 34.47, 38.09, 38.68, 39.07, 39.85, 40.59, 42.49, 43.28 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -96, 920 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 1632, 728 ), Vector2( 1632, 728 ), Vector2( -281, 784 ), Vector2( -192, 616 ), Vector2( 1368, 616 ), Vector2( 1368, 616 ), Vector2( 1368, 616 ), Vector2( 448, -72 ), Vector2( -224, -128 ), Vector2( -96, 920 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 1632, 728 ), Vector2( 1632, 728 ), Vector2( -281, 784 ), Vector2( -192, 616 ), Vector2( 1368, 616 ), Vector2( 1368, 616 ), Vector2( 1368, 616 ), Vector2( 448, -72 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TextureRect4:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3.92, 9.3, 10.09, 14.3, 14.89, 16.8, 18.51, 18.7, 19.49, 27.71, 33.09, 33.88, 38.09, 38.68, 40.59, 42.3, 42.49, 43.28 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 31.0, 31.0, 139.4, 139.4, 90.0, 90.0, -90.0, -45.0, -45.0, 31.0, 31.0, 139.4, 139.4, 90.0, 90.0, -90.0, -45.0, -45.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TextureRect4:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 50 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.53674e-07, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect3:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9.53674e-07, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TextureRect4:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -96, 920 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("TextureRect4:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 31.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("TextureRect4:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.0431373, 0.0470588, 0.054902, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 4
+
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect3" type="TextureRect" parent="."]
+modulate = Color( 0.196078, 0.196078, 0.196078, 1 )
 anchor_left = 0.012
 anchor_top = 0.011
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -15.36
 margin_top = -7.92
+margin_right = 1279.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.196078, 0.196078, 0.196078, 0.894118 )
+anchor_left = 0.012
+anchor_top = 0.011
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -15.36
+margin_top = -7.92
+margin_right = 1279.0
 texture = ExtResource( 2 )
 stretch_mode = 2
 
@@ -42,6 +197,18 @@ margin_right = -797.0
 margin_bottom = -216.0
 texture = SubResource( 9 )
 stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -96.0
+margin_top = 920.0
+margin_right = -1333.0
+margin_bottom = 240.0
+rect_rotation = 31.0
+rect_pivot_offset = Vector2( 21, 20 )
+rect_clip_content = true
+texture = SubResource( 14 )
 
 [node name="Button" type="TextureButton" parent="."]
 anchor_left = 0.5
@@ -129,6 +296,24 @@ meta_underlined = false
 text = "Forgotten 
 Army"
 scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "BG"
+anims/BG = SubResource( 12 )
+anims/RESET = SubResource( 13 )
+
+[node name="PopupDialog" type="PopupDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -256.0
+margin_right = 400.0
+margin_bottom = 256.0
+custom_styles/panel = SubResource( 15 )
+popup_exclusive = true
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
