@@ -1,0 +1,92 @@
+[gd_resource type="Theme" load_steps=18 format=2]
+
+[ext_resource path="res://Assets/Fonts/AllerDisplay_Std_Rg.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fonts/Aller_Std_Bd.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=15]
+size = 21
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.0463867, 0.0463867, 0.0742188, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxFlat" id=11]
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.0823529, 0.0823529, 0.152941, 1 )
+border_width_bottom = 25
+border_color = Color( 0.123047, 0.123047, 0.21875, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.0823529, 0.0823529, 0.152941, 1 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.0470588, 0.0470588, 0.0941176, 1 )
+
+[sub_resource type="StyleBoxLine" id=9]
+color = Color( 0.0823529, 0.0823529, 0.152941, 0.356863 )
+grow_begin = -40.0
+grow_end = -40.0
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.246674, 0.246674, 0.460938, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color( 0.0823529, 0.0823529, 0.152941, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 15.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.0823529, 0.0823529, 0.152941, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 15.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.0823529, 0.0823529, 0.152941, 1 )
+border_width_bottom = 25
+border_color = Color( 0.123047, 0.123047, 0.21875, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.32549, 0.32549, 0.4, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.266667, 0.266667, 0.329412, 1 )
+
+[sub_resource type="StyleBoxLine" id=6]
+color = Color( 0.2, 0.2, 0.298039, 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 1 )
+
+[resource]
+default_font = SubResource( 1 )
+Button/fonts/font = SubResource( 15 )
+Button/styles/disabled = SubResource( 14 )
+Button/styles/focus = SubResource( 12 )
+Button/styles/hover = SubResource( 11 )
+Button/styles/normal = SubResource( 10 )
+Button/styles/pressed = SubResource( 13 )
+HSeparator/styles/separator = SubResource( 9 )
+HSlider/styles/grabber_area = SubResource( 7 )
+HSlider/styles/grabber_area_highlight = SubResource( 7 )
+HSlider/styles/slider = SubResource( 8 )
+OptionButton/styles/disabled = SubResource( 2 )
+OptionButton/styles/focus = SubResource( 2 )
+OptionButton/styles/hover = SubResource( 3 )
+OptionButton/styles/normal = SubResource( 2 )
+OptionButton/styles/pressed = SubResource( 2 )
+PopupMenu/styles/hover = SubResource( 4 )
+PopupMenu/styles/panel = SubResource( 5 )
+PopupMenu/styles/separator = SubResource( 6 )

@@ -179,77 +179,65 @@ tracks/4/keys = {
 resource_name = "cutscene"
 length = 3.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/path = NodePath("Camera2D:zoom")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 2.9, 3.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Camera2D:zoom")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.6, 0.6 ), Vector2( 0.4, 0.4 ) ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath("Camera2D:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 1.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 638, 360 ), Vector2( 933, 360 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("navePlayer:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("navePlayer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0, 1.7, 2.1, 2.5, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 638, 360 ), Vector2( 931, 360 ), Vector2( 955, 355 ), Vector2( 972, 342 ), Vector2( 1099, 181 ) ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("navePlayer:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/path = NodePath("navePlayer:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0, 1.7, 2.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0, -58.2 ]
 }
-tracks/5/type = "method"
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 3.4 ),
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.7 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "change"
+"method": "_fade"
 } ]
 }
 
@@ -368,7 +356,7 @@ process_material = SubResource( 25 )
 [node name="nave" type="AnimatedSprite" parent="navePlayer"]
 rotation = 1.5708
 frames = SubResource( 19 )
-frame = 3
+frame = 17
 playing = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

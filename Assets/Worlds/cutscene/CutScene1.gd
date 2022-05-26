@@ -8,4 +8,7 @@ func change():
 
 func _input(event):
 	if !event is InputEventMouseMotion:
-		$AnimationPlayer2.play("transition")
+		_fade()
+		
+func _fade():
+	$AnimationPlayer2.play("transition")

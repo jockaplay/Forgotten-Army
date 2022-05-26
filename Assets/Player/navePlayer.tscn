@@ -159,7 +159,7 @@ process_material = SubResource( 25 )
 [node name="nave" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = SubResource( 19 )
-frame = 15
+frame = 10
 playing = true
 
 [node name="naveEffect" type="Sprite" parent="."]
@@ -190,7 +190,7 @@ anims/RESET = SubResource( 22 )
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.6, 0.6 )
+zoom = Vector2( 0.45, 0.45 )
 limit_left = -3000
 limit_top = -3000
 limit_right = 3000

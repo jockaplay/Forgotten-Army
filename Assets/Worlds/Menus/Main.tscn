@@ -1,31 +1,23 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Assets/Spr/Nave_001-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Spr/Space Background.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Worlds/Menus/Main.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Fonts/retro_computer_personal_use.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Assets/Spr/button.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Fonts/Aller_Std_Rg.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Fonts/ThemeOptions.tres" type="Theme" id=5]
 [ext_resource path="res://Assets/Spr/Enemy_001-Sheet.png" type="Texture" id=6]
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 32, 32 )
+[ext_resource path="res://Assets/Worlds/Menus/LevelSelector.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Fonts/LightButtons.tres" type="Theme" id=10]
+[ext_resource path="res://Assets/Fonts/AllerDisplay_Std_Rg.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="DynamicFont" id=10]
-size = 20
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=11]
-size = 62
-font_data = ExtResource( 4 )
-
 [sub_resource type="Animation" id=12]
 resource_name = "BG"
 length = 50.0
+loop = true
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("TextureRect:rect_position")
@@ -37,7 +29,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 50 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 9.53674e-07, 0 ), Vector2( -1279, 0 ) ]
+"values": [ Vector2( 9.53674e-07, 0 ), Vector2( -1264, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("TextureRect3:rect_position")
@@ -46,10 +38,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 25, 25.01, 50 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 24.99, 25, 25.01, 50 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 9.53674e-07, 0 ), Vector2( -1279, 0 ), Vector2( 0, 0 ), Vector2( -1279, 0 ) ]
+"values": [ Vector2( 9.53674e-07, 0 ), Vector2( -1264, 0 ), Vector2( -1279, 0 ), Vector2( 0, 0 ), Vector2( -1264, 0 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("TextureRect4:rect_position")
@@ -58,10 +50,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 3.92, 5.28, 9.3, 10.09, 10.68, 14.3, 14.89, 15.28, 16.06, 16.8, 18.7, 19.49, 22.62, 27.71, 29.07, 33.09, 33.88, 34.47, 38.09, 38.68, 39.07, 39.85, 40.59, 42.49, 43.28 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.00999999, 3.93, 5.28, 9.3, 10.09, 10.68, 14.32, 14.88, 14.89, 15.28, 16.06, 16.78, 18.69, 19.49, 22.62, 28.15, 32.07, 33.42, 37.44, 38.23, 38.82, 42.46, 43.02, 43.03, 43.42, 44.2, 44.92, 46.83, 47.63 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -96, 920 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 1632, 728 ), Vector2( 1632, 728 ), Vector2( -281, 784 ), Vector2( -192, 616 ), Vector2( 1368, 616 ), Vector2( 1368, 616 ), Vector2( 1368, 616 ), Vector2( 448, -72 ), Vector2( -224, -128 ), Vector2( -96, 920 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 1632, 728 ), Vector2( 1632, 728 ), Vector2( -281, 784 ), Vector2( -192, 616 ), Vector2( 1368, 616 ), Vector2( 1368, 616 ), Vector2( 1368, 616 ), Vector2( 448, -72 ) ]
+"values": [ Vector2( -96, 920 ), Vector2( -96, 920 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 2400, 1528 ), Vector2( 2400, 1528 ), Vector2( -208, 1592 ), Vector2( -281, 784 ), Vector2( -192, 616 ), Vector2( 2608, 616 ), Vector2( 2608, 616 ), Vector2( 2624, 1592 ), Vector2( 448, -72 ), Vector2( -224, -128 ), Vector2( -96, 920 ), Vector2( -96, 920 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 2400, 1528 ), Vector2( 2400, 1528 ), Vector2( -208, 1592 ), Vector2( -281, 784 ), Vector2( -192, 616 ), Vector2( 2608, 616 ), Vector2( 2608, 616 ), Vector2( 2624, 1592 ), Vector2( 448, -72 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("TextureRect4:rect_rotation")
@@ -70,10 +62,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 3.92, 9.3, 10.09, 14.3, 14.89, 16.8, 18.51, 18.7, 19.49, 27.71, 33.09, 33.88, 38.09, 38.68, 40.59, 42.3, 42.49, 43.28 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 3.92, 9.3, 10.09, 14.3, 14.89, 16.8, 18.51, 18.7, 19.49, 28.14, 32.06, 37.44, 38.23, 42.44, 43.03, 44.94, 46.65, 46.84, 47.63 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 31.0, 31.0, 139.4, 139.4, 90.0, 90.0, -90.0, -45.0, -45.0, 31.0, 31.0, 139.4, 139.4, 90.0, 90.0, -90.0, -45.0, -45.0 ]
+"values": [ 31.0, 31.0, 31.0, 139.4, 139.4, 90.0, 90.0, -90.0, -45.0, -45.0, 31.0, 31.0, 31.0, 139.4, 139.4, 90.0, 90.0, -90.0, -45.0, -45.0 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("TextureRect4:rect_scale")
@@ -151,18 +143,186 @@ tracks/4/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="DynamicFont" id=20]
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
+
 [sub_resource type="StyleBoxFlat" id=15]
-bg_color = Color( 0.0431373, 0.0470588, 0.054902, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 4
+bg_color = Color( 0.0352941, 0.0392157, 0.0431373, 1 )
+border_width_left = 5
+border_width_top = 40
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=21]
+size = 29
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=43]
+size = 29
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.0823529, 0.0823529, 0.152941, 0.576471 )
+border_width_right = 800
+border_color = Color( 0, 0, 0, 0 )
+border_blend = true
+
+[sub_resource type="DynamicFont" id=23]
+size = 33
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_bottom = 100
+border_color = Color( 0.8, 0.8, 0.8, 0.215686 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=30]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.278431, 0.372549, 0.552941, 0 )
+border_width_bottom = 100
+border_color = Color( 0.482353, 0.537255, 0.760784, 0.215686 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=31]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.427451, 0.403922, 0.403922, 0.282353 )
+
+[sub_resource type="StyleBoxFlat" id=25]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.427451, 0.403922, 0.403922, 0 )
+
+[sub_resource type="DynamicFont" id=33]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=34]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_bottom = 100
+border_color = Color( 0.8, 0.8, 0.8, 0.215686 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=35]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.278431, 0.372549, 0.552941, 0 )
+border_width_bottom = 100
+border_color = Color( 0.482353, 0.537255, 0.760784, 0.215686 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=36]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="StyleBoxFlat" id=37]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="DynamicFont" id=26]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=28]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 120
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="DynamicFont" id=38]
+size = 36
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=41]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color( 0.0823529, 0.0823529, 0.152941, 1 )
+border_width_bottom = 100
+border_color = Color( 0.207001, 0.207001, 0.348633, 1 )
+border_blend = true
+
+[sub_resource type="DynamicFont" id=32]
+size = 36
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=39]
+size = 36
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=40]
+size = 36
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=42]
+size = 21
+font_data = ExtResource( 11 )
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 3 )
+_back_button = NodePath("MainMenu/Panel2/HBoxContainer/HBoxContainer3/BACK")
+_menu_main = NodePath("MainMenu/Logo")
+_menu_play = NodePath("MainMenu/Jogar")
+_menu_options = NodePath("MainMenu/Options")
+_menu_extra = NodePath("MainMenu/Extra")
+_menu_info = NodePath("MainMenu/Info")
+_menu_exit = NodePath("MainMenu/Sair")
+_popout = NodePath("PopupDialog")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 modulate = Color( 0.196078, 0.196078, 0.196078, 1 )
@@ -170,124 +330,295 @@ anchor_left = 0.012
 anchor_top = 0.011
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -15.36
-margin_top = -7.92
-margin_right = 1279.0
+margin_left = -23.76
+margin_top = -11.88
+margin_right = 4491.48
+margin_bottom = 1776.24
+rect_scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 stretch_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color( 0.196078, 0.196078, 0.196078, 0.894118 )
+modulate = Color( 0.196078, 0.196078, 0.196078, 0.882353 )
 anchor_left = 0.012
 anchor_top = 0.011
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -15.36
-margin_top = -7.92
-margin_right = 1279.0
+margin_left = -23.76
+margin_top = -11.88
+margin_right = 4491.48
+margin_bottom = 1776.24
+rect_scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 stretch_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 357.0
-margin_top = 378.0
-margin_right = -797.0
-margin_bottom = -216.0
-texture = SubResource( 9 )
-stretch_mode = 5
 
 [node name="TextureRect4" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -96.0
 margin_top = 920.0
-margin_right = -1333.0
-margin_bottom = 240.0
+margin_right = 4607.0
+margin_bottom = 3480.0
 rect_rotation = 31.0
 rect_pivot_offset = Vector2( 21, 20 )
 rect_clip_content = true
 texture = SubResource( 14 )
 
-[node name="Button" type="TextureButton" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -53.0
-margin_top = 48.0
-margin_right = 42.0
-margin_bottom = 86.0
-size_flags_horizontal = 5
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
-texture_focused = ExtResource( 5 )
-expand = true
-stretch_mode = 4
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "BG"
+anims/BG = SubResource( 12 )
+anims/RESET = SubResource( 13 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Button"]
+[node name="PopupDialog" type="WindowDialog" parent="."]
+visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -47.5
-margin_top = -15.0
-margin_right = 47.5
-margin_bottom = 15.0
+margin_left = -650.0
+margin_top = -400.0
+margin_right = 650.0
+margin_bottom = 400.0
+custom_colors/title_color = Color( 0, 0, 0, 0.0941176 )
+custom_constants/close_h_ofs = 20
+custom_constants/scaleborder_size = -20
+custom_constants/close_v_ofs = -10
+custom_fonts/title_font = SubResource( 20 )
+custom_styles/panel = SubResource( 15 )
+window_title = "Release Note!"
+
+[node name="Label" type="Label" parent="PopupDialog"]
+margin_left = 32.0
+margin_top = 157.0
+margin_right = 1264.0
+margin_bottom = 341.0
+custom_fonts/font = SubResource( 21 )
+text = "- Animação para a nave geradora
+- Cutscene agora pode ser pulada ao clicar qualquer botão
+- Novo background
+- Nova animação no menu (Ainda será alterado)"
+
+[node name="Label2" type="Label" parent="PopupDialog"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -99.5
+margin_top = 72.0
+margin_right = 99.5
+margin_bottom = 108.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 43 )
+text = "RELEASE NOTE!"
+align = 1
+
+[node name="MainMenu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 10 )
-bbcode_enabled = true
-bbcode_text = "[center]Play"
-text = "Play"
-scroll_active = false
+theme = ExtResource( 5 )
 
-[node name="Button2" type="TextureButton" parent="."]
+[node name="Panel" type="Panel" parent="MainMenu"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -88.0
+custom_styles/panel = SubResource( 22 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/Panel/HBoxContainer"]
+margin_right = 1776.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="JOGAR" type="Button" parent="MainMenu/Panel/HBoxContainer/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 200, 0 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color_disabled = Color( 0.584314, 0.584314, 0.584314, 0.172549 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.85098, 0.898039, 0.952941, 1 )
+custom_fonts/font = SubResource( 23 )
+custom_styles/hover = SubResource( 24 )
+custom_styles/pressed = SubResource( 30 )
+custom_styles/focus = SubResource( 30 )
+custom_styles/disabled = SubResource( 31 )
+custom_styles/normal = SubResource( 25 )
+text = "JOGAR"
+
+[node name="OPT" type="Button" parent="MainMenu/Panel/HBoxContainer/HBoxContainer"]
+margin_left = 200.0
+margin_right = 400.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 200, 0 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color_disabled = Color( 0.584314, 0.584314, 0.584314, 0.172549 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.85098, 0.898039, 0.952941, 1 )
+custom_fonts/font = SubResource( 23 )
+custom_styles/hover = SubResource( 24 )
+custom_styles/pressed = SubResource( 30 )
+custom_styles/focus = SubResource( 30 )
+custom_styles/disabled = SubResource( 31 )
+custom_styles/normal = SubResource( 25 )
+text = "OPÇÕES"
+
+[node name="EXTRA" type="Button" parent="MainMenu/Panel/HBoxContainer/HBoxContainer"]
+margin_left = 400.0
+margin_right = 600.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 200, 0 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color_disabled = Color( 0.584314, 0.584314, 0.584314, 0.172549 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.85098, 0.898039, 0.952941, 1 )
+custom_fonts/font = SubResource( 23 )
+custom_styles/hover = SubResource( 24 )
+custom_styles/pressed = SubResource( 30 )
+custom_styles/focus = SubResource( 30 )
+custom_styles/disabled = SubResource( 31 )
+custom_styles/normal = SubResource( 25 )
+text = "EXTRA"
+
+[node name="INFO" type="Button" parent="MainMenu/Panel/HBoxContainer/HBoxContainer"]
+margin_left = 600.0
+margin_right = 800.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 200, 0 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color_disabled = Color( 0.584314, 0.584314, 0.584314, 0.172549 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.85098, 0.898039, 0.952941, 1 )
+custom_fonts/font = SubResource( 23 )
+custom_styles/hover = SubResource( 24 )
+custom_styles/pressed = SubResource( 30 )
+custom_styles/focus = SubResource( 30 )
+custom_styles/disabled = SubResource( 31 )
+custom_styles/normal = SubResource( 25 )
+text = "INFO"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainMenu/Panel/HBoxContainer"]
+margin_left = 1780.0
+margin_right = 1980.0
+margin_bottom = 88.0
+
+[node name="SAIR" type="Button" parent="MainMenu/Panel/HBoxContainer/HBoxContainer2"]
+margin_right = 200.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 200, 0 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color_disabled = Color( 0.584314, 0.584314, 0.584314, 0.172549 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.85098, 0.898039, 0.952941, 1 )
+custom_fonts/font = SubResource( 23 )
+custom_styles/hover = SubResource( 24 )
+custom_styles/pressed = SubResource( 30 )
+custom_styles/focus = SubResource( 30 )
+custom_styles/disabled = SubResource( 31 )
+custom_styles/normal = SubResource( 25 )
+text = "SAIR"
+
+[node name="Panel2" type="Panel" parent="MainMenu"]
+anchor_right = 1.0
+margin_bottom = 40.0
+custom_styles/panel = SubResource( 22 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/Panel2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MainMenu/Panel2/HBoxContainer"]
+margin_right = 988.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="BACK" type="Button" parent="MainMenu/Panel2/HBoxContainer/HBoxContainer3"]
+margin_right = 200.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 0 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_colors/font_color_disabled = Color( 0.584314, 0.584314, 0.584314, 0 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.85098, 0.898039, 0.952941, 1 )
+custom_fonts/font = SubResource( 33 )
+custom_styles/hover = SubResource( 34 )
+custom_styles/pressed = SubResource( 35 )
+custom_styles/focus = SubResource( 35 )
+custom_styles/disabled = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
+disabled = true
+enabled_focus_mode = 0
+text = "BACK"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainMenu/Panel2/HBoxContainer"]
+margin_left = 992.0
+margin_right = 1980.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="NEWS" type="Button" parent="MainMenu/Panel2/HBoxContainer/HBoxContainer2"]
+margin_left = 788.0
+margin_right = 988.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 0 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_colors/font_color_disabled = Color( 0.584314, 0.584314, 0.584314, 0.172549 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.85098, 0.898039, 0.952941, 1 )
+custom_fonts/font = SubResource( 26 )
+custom_styles/hover = SubResource( 24 )
+custom_styles/pressed = SubResource( 30 )
+custom_styles/focus = SubResource( 30 )
+custom_styles/disabled = SubResource( 31 )
+custom_styles/normal = SubResource( 28 )
+enabled_focus_mode = 0
+text = "NEWS"
+
+[node name="Logo" type="Control" parent="MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 40.0
+margin_bottom = -88.0
+focus_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/Logo"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -53.0
-margin_top = 90.0
-margin_right = 42.0
-margin_bottom = 128.0
-size_flags_horizontal = 5
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
-texture_disabled = ExtResource( 5 )
-texture_focused = ExtResource( 5 )
-expand = true
-stretch_mode = 4
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="Button2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -47.5
-margin_top = -16.0
-margin_right = 47.5
-margin_bottom = 16.0
-mouse_filter = 2
-custom_fonts/normal_font = SubResource( 10 )
-bbcode_enabled = true
-bbcode_text = "[center]Exit"
-text = "Exit"
-scroll_active = false
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -326.0
-margin_top = 56.0
-margin_right = 327.0
-margin_bottom = 232.0
+margin_left = -759.0
+margin_top = -275.0
+margin_right = 760.0
+margin_bottom = 101.0
 rect_pivot_offset = Vector2( 327, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
 custom_fonts/normal_font = SubResource( 11 )
 bbcode_enabled = true
 bbcode_text = "[center][wave]Forgotten 
@@ -297,23 +628,546 @@ text = "Forgotten
 Army"
 scroll_active = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "BG"
-anims/BG = SubResource( 12 )
-anims/RESET = SubResource( 13 )
-
-[node name="PopupDialog" type="PopupDialog" parent="."]
-visible = true
+[node name="TextureRect2" type="TextureRect" parent="MainMenu/Logo"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = -256.0
-margin_right = 400.0
-margin_bottom = 256.0
-custom_styles/panel = SubResource( 15 )
-popup_exclusive = true
+margin_left = 221.0
+margin_top = -153.0
+margin_right = 396.0
+margin_bottom = -12.0001
+rect_rotation = 21.6311
+texture = SubResource( 9 )
+expand = true
+stretch_mode = 5
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
+[node name="Jogar" type="Control" parent="MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1980.0
+margin_top = 40.0
+margin_right = 1980.0
+margin_bottom = -88.0
+theme = ExtResource( 5 )
+script = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="MainMenu/Jogar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -71.5
+margin_top = -304.0
+margin_right = 71.5
+margin_bottom = -254.0
+custom_fonts/font = SubResource( 38 )
+text = "NÍVEIS"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Jogar"]
+margin_left = 544.0
+margin_top = 273.0
+margin_right = 544.0
+margin_bottom = 755.0
+custom_constants/separation = 33
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/Jogar/VBoxContainer"]
+margin_right = 905.0
+margin_bottom = 120.0
+custom_constants/separation = 37
+
+[node name="Button" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+text = "1"
+
+[node name="Button2" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer"]
+margin_left = 157.0
+margin_right = 277.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "2"
+
+[node name="Button3" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer"]
+margin_left = 314.0
+margin_right = 434.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "3"
+
+[node name="Button4" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer"]
+margin_left = 471.0
+margin_right = 591.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "4"
+
+[node name="Button5" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer"]
+margin_left = 628.0
+margin_right = 748.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "5"
+
+[node name="Button7" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer"]
+margin_left = 785.0
+margin_right = 905.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "6"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainMenu/Jogar/VBoxContainer"]
+margin_top = 153.0
+margin_right = 905.0
+margin_bottom = 273.0
+custom_constants/separation = 37
+
+[node name="Button" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer2"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "7"
+
+[node name="Button2" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer2"]
+margin_left = 157.0
+margin_right = 277.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "8"
+
+[node name="Button3" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer2"]
+margin_left = 314.0
+margin_right = 434.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "9"
+
+[node name="Button4" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer2"]
+margin_left = 471.0
+margin_right = 591.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "10"
+
+[node name="Button5" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer2"]
+margin_left = 628.0
+margin_right = 748.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "11"
+
+[node name="Button7" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer2"]
+margin_left = 785.0
+margin_right = 905.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "12"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MainMenu/Jogar/VBoxContainer"]
+margin_top = 306.0
+margin_right = 905.0
+margin_bottom = 426.0
+custom_constants/separation = 37
+
+[node name="Button" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer3"]
+margin_right = 120.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "13"
+
+[node name="Button2" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer3"]
+margin_left = 157.0
+margin_right = 277.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "14"
+
+[node name="Button3" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer3"]
+margin_left = 314.0
+margin_right = 434.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "15"
+
+[node name="Button4" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer3"]
+margin_left = 471.0
+margin_right = 591.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "16"
+
+[node name="Button5" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer3"]
+margin_left = 628.0
+margin_right = 748.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "17"
+
+[node name="Button7" type="Button" parent="MainMenu/Jogar/VBoxContainer/HBoxContainer3"]
+margin_left = 785.0
+margin_right = 905.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+mouse_default_cursor_shape = 2
+custom_colors/font_color = Color( 0.54902, 0.607843, 0.643137, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_styles/hover = SubResource( 41 )
+disabled = true
+text = "18"
+
+[node name="Options" type="Control" parent="MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3960.0
+margin_top = 40.0
+margin_right = 3960.0
+margin_bottom = -88.0
+theme = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="MainMenu/Options"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -71.5
+margin_top = -203.0
+margin_right = 71.5
+margin_bottom = -153.0
+custom_fonts/font = SubResource( 32 )
+text = "OPÇÕES"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Options"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.0
+margin_top = -65.5
+margin_right = 225.0
+margin_bottom = 65.5
+rect_min_size = Vector2( 450, 0 )
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Language" type="HBoxContainer" parent="MainMenu/Options/VBoxContainer"]
+margin_right = 450.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="MainMenu/Options/VBoxContainer/Language"]
+margin_top = 6.0
+margin_right = 146.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+text = "Language"
+
+[node name="OptionButton" type="OptionButton" parent="MainMenu/Options/VBoxContainer/Language"]
+margin_left = 150.0
+margin_right = 450.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 300, 41 )
+text = "English"
+align = 1
+items = [ "English", null, false, 0, null, "Portugês", null, false, 1, null ]
+selected = 0
+
+[node name="HSeparator" type="HSeparator" parent="MainMenu/Options/VBoxContainer"]
+margin_top = 51.0
+margin_right = 450.0
+margin_bottom = 55.0
+
+[node name="Music" type="HBoxContainer" parent="MainMenu/Options/VBoxContainer"]
+margin_top = 65.0
+margin_right = 450.0
+margin_bottom = 106.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="MainMenu/Options/VBoxContainer/Music"]
+margin_top = 6.0
+margin_right = 146.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+text = "Music"
+
+[node name="OptionButton" type="HSlider" parent="MainMenu/Options/VBoxContainer/Music"]
+margin_left = 150.0
+margin_right = 450.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 300, 41 )
+
+[node name="HSeparator2" type="HSeparator" parent="MainMenu/Options/VBoxContainer"]
+margin_top = 116.0
+margin_right = 450.0
+margin_bottom = 120.0
+
+[node name="SFX" type="HBoxContainer" parent="MainMenu/Options/VBoxContainer"]
+margin_top = 130.0
+margin_right = 450.0
+margin_bottom = 171.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="MainMenu/Options/VBoxContainer/SFX"]
+margin_top = 6.0
+margin_right = 146.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+text = "SFX"
+
+[node name="OptionButton" type="HSlider" parent="MainMenu/Options/VBoxContainer/SFX"]
+margin_left = 150.0
+margin_right = 450.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 300, 41 )
+
+[node name="HSeparator3" type="HSeparator" parent="MainMenu/Options/VBoxContainer"]
+margin_top = 181.0
+margin_right = 450.0
+margin_bottom = 185.0
+
+[node name="Points" type="HBoxContainer" parent="MainMenu/Options/VBoxContainer"]
+margin_top = 195.0
+margin_right = 450.0
+margin_bottom = 236.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="MainMenu/Options/VBoxContainer/Points"]
+margin_top = 6.0
+margin_right = 146.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+text = "Points"
+
+[node name="OptionButton" type="Button" parent="MainMenu/Options/VBoxContainer/Points"]
+margin_left = 150.0
+margin_right = 450.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 300, 41 )
+text = "Reset All"
+
+[node name="Extra" type="Control" parent="MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5940.0
+margin_top = 40.0
+margin_right = 5940.0
+margin_bottom = -88.0
+
+[node name="Label" type="Label" parent="MainMenu/Extra"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -71.5
+margin_top = -203.0
+margin_right = 71.5
+margin_bottom = -153.0
+custom_fonts/font = SubResource( 39 )
+text = "EXTRA"
+align = 1
+
+[node name="Label2" type="Label" parent="MainMenu/Extra"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -87.0
+margin_top = -25.0
+margin_right = 87.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 39 )
+text = "EM BREVE"
+align = 1
+
+[node name="Info" type="Control" parent="MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 7920.0
+margin_top = 40.0
+margin_right = 7920.0
+margin_bottom = -88.0
+
+[node name="Label" type="Label" parent="MainMenu/Info"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -71.5
+margin_top = -203.0
+margin_right = 71.5
+margin_bottom = -153.0
+custom_fonts/font = SubResource( 40 )
+text = "INFO"
+align = 1
+
+[node name="Label3" type="Label" parent="MainMenu/Info"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -87.0
+margin_top = -25.0
+margin_right = 87.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 39 )
+text = "EM BREVE"
+align = 1
+
+[node name="Sair" type="Control" parent="MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9900.0
+margin_top = 40.0
+margin_right = 9900.0
+margin_bottom = -88.0
+theme = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="MainMenu/Sair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -189.5
+margin_top = -203.0
+margin_right = 189.5
+margin_bottom = -153.0
+custom_fonts/font = SubResource( 40 )
+text = "DESEJA MESMO SAIR?"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Sair"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -235.0
+margin_top = -20.0
+margin_right = 235.0
+margin_bottom = 20.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/Sair/VBoxContainer"]
+margin_right = 470.0
+margin_bottom = 26.0
+theme = ExtResource( 10 )
+custom_constants/separation = 70
+alignment = 1
+
+[node name="confirmExit" type="Button" parent="MainMenu/Sair/VBoxContainer/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 200, 0 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 42 )
+text = "SIM"
+
+[node name="cancelExit" type="Button" parent="MainMenu/Sair/VBoxContainer/HBoxContainer"]
+margin_left = 270.0
+margin_right = 470.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 200, 0 )
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 42 )
+text = "NÃO"
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="MainMenu/Panel/HBoxContainer/HBoxContainer/JOGAR" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="MainMenu/Panel/HBoxContainer/HBoxContainer/OPT" to="." method="_on_OPT_pressed"]
+[connection signal="pressed" from="MainMenu/Panel/HBoxContainer/HBoxContainer/EXTRA" to="." method="_on_extra_pressed"]
+[connection signal="pressed" from="MainMenu/Panel/HBoxContainer/HBoxContainer/INFO" to="." method="_on_info_pressed"]
+[connection signal="pressed" from="MainMenu/Panel/HBoxContainer/HBoxContainer2/SAIR" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MainMenu/Panel2/HBoxContainer/HBoxContainer3/BACK" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MainMenu/Panel2/HBoxContainer/HBoxContainer2/NEWS" to="." method="_on_news_pressed"]
+[connection signal="pressed" from="MainMenu/Jogar/VBoxContainer/HBoxContainer/Button" to="MainMenu/Jogar" method="_on_Button_pressed"]
+[connection signal="pressed" from="MainMenu/Sair/VBoxContainer/HBoxContainer/confirmExit" to="." method="_on_confirmExit_pressed"]
+[connection signal="pressed" from="MainMenu/Sair/VBoxContainer/HBoxContainer/cancelExit" to="." method="_on_cancelExit_pressed"]

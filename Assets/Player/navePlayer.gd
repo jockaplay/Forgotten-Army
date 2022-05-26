@@ -68,10 +68,10 @@ func boosty(delta, _maxvalue):
 	time += delta
 #	if time > 1:
 	if boost == true:
-		cam.zoom = lerp(cam.zoom, Vector2(0.75, 0.75), 0.2 * delta * 20)
+		cam.zoom = lerp(cam.zoom, Vector2(0.65, 0.65), 0.2 * delta * 20)
 		power -= 0.05
 	else:
-		cam.zoom = lerp(cam.zoom, Vector2(0.6, 0.6), 0.2 * delta * 20)
+		cam.zoom = lerp(cam.zoom, Vector2(0.45, 0.45), 0.2 * delta * 20)
 		power += 0.05
 	time = 0
 
