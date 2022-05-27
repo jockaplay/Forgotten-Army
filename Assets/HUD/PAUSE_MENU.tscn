@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/HUD/Title.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/HUD/ButtonsMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Fonts/ThemeOptions.tres" type="Theme" id=3]
+
+[node name="PAUSE_MENU" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.870588 )
+
+[node name="Label" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -172.0
+margin_top = 231.0
+margin_right = 172.0
+margin_bottom = 294.0
+
+[node name="BUTTONS" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CONTINUAR" parent="BUTTONS" instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -85.0
+margin_top = -54.0
+margin_right = 85.0
+margin_bottom = -16.0
+text = "CONTINUAR"
+
+[node name="SAIR" parent="BUTTONS" instance=ExtResource( 2 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -85.0
+margin_top = 2.0
+margin_right = 85.0
+margin_bottom = 40.0
+text = "SAIR"
