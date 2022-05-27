@@ -1,147 +1,21 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Assets/Spr/Nave_001-Sheet.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Spr/Space Background.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Worlds/Menus/Main.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Fonts/Aller_Std_Rg.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Assets/Fonts/ThemeOptions.tres" type="Theme" id=5]
-[ext_resource path="res://Assets/Spr/Enemy_001-Sheet.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Worlds/Menus/LevelSelector.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Fonts/LightButtons.tres" type="Theme" id=10]
 [ext_resource path="res://Assets/Fonts/AllerDisplay_Std_Rg.ttf" type="DynamicFontData" id=11]
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="Animation" id=12]
 resource_name = "BG"
 length = 50.0
 loop = true
 step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("TextureRect:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 50 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 9.53674e-07, 0 ), Vector2( -1264, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("TextureRect3:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 24.99, 25, 25.01, 50 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 9.53674e-07, 0 ), Vector2( -1264, 0 ), Vector2( -1279, 0 ), Vector2( 0, 0 ), Vector2( -1264, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("TextureRect4:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.00999999, 3.93, 5.28, 9.3, 10.09, 10.68, 14.32, 14.88, 14.89, 15.28, 16.06, 16.78, 18.69, 19.49, 22.62, 28.15, 32.07, 33.42, 37.44, 38.23, 38.82, 42.46, 43.02, 43.03, 43.42, 44.2, 44.92, 46.83, 47.63 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -96, 920 ), Vector2( -96, 920 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 2400, 1528 ), Vector2( 2400, 1528 ), Vector2( -208, 1592 ), Vector2( -281, 784 ), Vector2( -192, 616 ), Vector2( 2608, 616 ), Vector2( 2608, 616 ), Vector2( 2624, 1592 ), Vector2( 448, -72 ), Vector2( -224, -128 ), Vector2( -96, 920 ), Vector2( -96, 920 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 800, -144 ), Vector2( 2400, 1528 ), Vector2( 2400, 1528 ), Vector2( -208, 1592 ), Vector2( -281, 784 ), Vector2( -192, 616 ), Vector2( 2608, 616 ), Vector2( 2608, 616 ), Vector2( 2624, 1592 ), Vector2( 448, -72 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("TextureRect4:rect_rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 3.92, 9.3, 10.09, 14.3, 14.89, 16.8, 18.51, 18.7, 19.49, 28.14, 32.06, 37.44, 38.23, 42.44, 43.03, 44.94, 46.65, 46.84, 47.63 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 31.0, 31.0, 31.0, 139.4, 139.4, 90.0, 90.0, -90.0, -45.0, -45.0, 31.0, 31.0, 31.0, 139.4, 139.4, 90.0, 90.0, -90.0, -45.0, -45.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("TextureRect4:rect_scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 50 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ) ]
-}
 
 [sub_resource type="Animation" id=13]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("TextureRect:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 9.53674e-07, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("TextureRect3:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 9.53674e-07, 0 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("TextureRect4:rect_position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -96, 920 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("TextureRect4:rect_rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 31.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("TextureRect4:rect_scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
 
 [sub_resource type="DynamicFont" id=20]
 outline_color = Color( 0, 0, 0, 1 )
@@ -271,7 +145,7 @@ content_margin_bottom = 0.0
 bg_color = Color( 1, 1, 1, 0 )
 
 [sub_resource type="DynamicFont" id=11]
-size = 120
+size = 200
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
@@ -324,53 +198,17 @@ _menu_info = NodePath("MainMenu/Info")
 _menu_exit = NodePath("MainMenu/Sair")
 _popout = NodePath("PopupDialog")
 
-[node name="TextureRect3" type="TextureRect" parent="."]
-modulate = Color( 0.196078, 0.196078, 0.196078, 1 )
-anchor_left = 0.012
-anchor_top = 0.011
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -23.76
-margin_top = -11.88
-margin_right = 4491.48
-margin_bottom = 1776.24
-rect_scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 2 )
-stretch_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color( 0.196078, 0.196078, 0.196078, 0.882353 )
-anchor_left = 0.012
-anchor_top = 0.011
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -23.76
-margin_top = -11.88
-margin_right = 4491.48
-margin_bottom = 1776.24
-rect_scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 2 )
-stretch_mode = 2
-
-[node name="TextureRect4" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -96.0
-margin_top = 920.0
-margin_right = 4607.0
-margin_bottom = 3480.0
-rect_rotation = 31.0
-rect_pivot_offset = Vector2( 21, 20 )
-rect_clip_content = true
-texture = SubResource( 14 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "BG"
 anims/BG = SubResource( 12 )
 anims/RESET = SubResource( 13 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.219608, 0.207843, 0.376471, 0.286275 )
+
 [node name="PopupDialog" type="WindowDialog" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -615,7 +453,7 @@ anchor_bottom = 0.5
 margin_left = -759.0
 margin_top = -275.0
 margin_right = 760.0
-margin_bottom = 101.0
+margin_bottom = 222.0
 rect_pivot_offset = Vector2( 327, 0 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 4
@@ -633,11 +471,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 221.0
-margin_top = -153.0
-margin_right = 396.0
-margin_bottom = -12.0001
-rect_rotation = 21.6311
+margin_left = -474.0
+margin_top = -65.0
+margin_right = -264.0
+margin_bottom = 151.0
+rect_rotation = 375.0
 texture = SubResource( 9 )
 expand = true
 stretch_mode = 5
@@ -1137,15 +975,15 @@ margin_bottom = 20.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/Sair/VBoxContainer"]
 margin_right = 470.0
-margin_bottom = 26.0
+margin_bottom = 35.0
 theme = ExtResource( 10 )
 custom_constants/separation = 70
 alignment = 1
 
 [node name="confirmExit" type="Button" parent="MainMenu/Sair/VBoxContainer/HBoxContainer"]
 margin_right = 200.0
-margin_bottom = 26.0
-rect_min_size = Vector2( 200, 0 )
+margin_bottom = 35.0
+rect_min_size = Vector2( 200, 35 )
 mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 42 )
 text = "SIM"
@@ -1153,8 +991,8 @@ text = "SIM"
 [node name="cancelExit" type="Button" parent="MainMenu/Sair/VBoxContainer/HBoxContainer"]
 margin_left = 270.0
 margin_right = 470.0
-margin_bottom = 26.0
-rect_min_size = Vector2( 200, 0 )
+margin_bottom = 35.0
+rect_min_size = Vector2( 200, 35 )
 mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 42 )
 text = "NÃO"
