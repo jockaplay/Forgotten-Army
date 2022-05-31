@@ -2,7 +2,9 @@ extends KinematicBody2D
 class_name Enemy
 
 onready var target = get_parent().get_node_or_null("navePlayer")
-onready var drop = preload("res://Assets/Objects/PowerUps/life.tscn")
+
+export(PackedScene) var _drop
+onready var drop = _drop
 export var speed = 1
 export var life = 1
 var time = 0

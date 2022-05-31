@@ -148,6 +148,7 @@ tracks/0/keys = {
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 1 )
+_cam = NodePath("Camera")
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( -12, 0 )
@@ -159,7 +160,7 @@ process_material = SubResource( 25 )
 [node name="nave" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = SubResource( 19 )
-frame = 10
+frame = 7
 playing = true
 
 [node name="naveEffect" type="Sprite" parent="."]

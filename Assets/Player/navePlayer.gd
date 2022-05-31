@@ -1,44 +1,61 @@
 extends KinematicBody2D
 
-var speed = 95
-var vida = 10
+export var speed = 95
+export var vida = 10
 var maxVida = 10
 var power = 5
 var maxipower = 15
 var boost = false
+export(int) var _boost_speed
 var time = 0
 var cooldown = false
 var cooldownTime = 0.3
-onready var bullet = preload("res://Assets/Player/spells/bullet.tscn")
-onready var cam = get_node("Camera")
-onready var hpbar = get_node("../CanvasLayer/TextureProgress")
-onready var boostBar = get_node("../CanvasLayer/power")
+var velocity = Vector2.ZERO
+
+"""  debug  """
+
+export(bool) var _imortal
+onready var imortal = _imortal
+
+"""  debug  """
+
+export(PackedScene) var _bullet
+onready var bullet = _bullet
+
+export(NodePath) var _cam
+onready var cam = get_node(_cam) as Camera2D
+
+export(NodePath) var _hp_bar
+onready var hpbar = get_node(_hp_bar) as TextureProgress
+
+export(NodePath) var _boost_bar
+onready var boostBar = get_node(_boost_bar) as TextureProgress
+
+export(NodePath) var _bbcode
+onready var bbcode = get_node(_bbcode) as RichTextLabel
 
 func _ready():
 	boostBar.max_value = maxipower
 	$cooldown.wait_time = cooldownTime
 	
 func _physics_process(delta):
-	hpbar.max_value = maxVida
-	vida = clamp(vida, 0, maxVida)
-	get_parent().get_node("CanvasLayer/RichTextLabel").bbcode_text = "colmeias: " + str(Global.killedCol) + "/" + str(Global.colmNumber)
-	hpbar.value = vida
+	bbcode.bbcode_text = "colmeias: " + str(Global.killedCol) + "/" + str(Global.colmNumber)
 	boostBar.value = power
 	boosty(delta, maxipower)
-	applyBoost(160)
+	applyBoost(_boost_speed)
 	changeBarColor()
-	var velocity = Vector2.ZERO
+	shoot()
+	_set_hp_settings()
 	look_at(get_global_mouse_position())
 	velocity = (get_global_mouse_position() - position).normalized() * speed * Input.get_action_strength("foward")
-	if Input.is_action_pressed("shoot"):
-		if !cooldown:
-			shoot()
-			$cooldown.start()
-	var _mv = move_and_slide(velocity)
 	if vida <= 0:
 		var _menu = get_tree().change_scene("res://Assets/Worlds/Menus/Main.tscn")
+	var _mv = move_and_slide(velocity)
 	
-func _input(_event):
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed and event.scancode == KEY_DELETE:
+			imortal = !imortal
 	if Input.is_action_just_pressed("boost"):
 #		power -= 1
 		time = 0
@@ -48,12 +65,14 @@ func _input(_event):
 			boost = false
 
 func shoot():
-	cooldown = true
-	var b = bullet.instance()
-	b.rotation_degrees = rotation_degrees
-	b.global_position = $MainGun.global_position
-	get_parent().call_deferred("add_child", b)
-	pass
+	if Input.is_action_pressed("shoot"):
+		if !cooldown:
+			cooldown = true
+			var b = bullet.instance()
+			b.rotation_degrees = rotation_degrees
+			b.global_position = $MainGun.global_position
+			get_parent().call_deferred("add_child", b)
+			$cooldown.start()
 
 func applyBoost(value:int):
 	if boost == true:
@@ -78,6 +97,11 @@ func boosty(delta, _maxvalue):
 func _on_cooldown_timeout():
 	cooldown = false
 
+func _set_hp_settings():
+	vida = clamp(vida, 0, maxVida)
+	hpbar.max_value = maxVida
+	hpbar.value = vida
+
 func changeBarColor():
 	if vida < (maxVida / 3):
 		hpbar.tint_progress = Color(1, 0, 0)
@@ -87,4 +111,5 @@ func changeBarColor():
 		hpbar.tint_progress = Color(0, 1, 0)
 		
 func hit(damage):
-	vida -= damage
+	if !imortal:
+		vida -= damage

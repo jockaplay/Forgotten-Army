@@ -2,8 +2,12 @@ extends Enemy
 
 var timeb = 0
 var distance = 0
-onready var bullet = preload("res://Assets/Enemy/skills/bulletEnemy.tscn")
-onready var partc = preload("res://Assets/Objects/Particles/ParticlesExplosion.tscn")
+
+export(PackedScene) var _bullet
+onready var bullet = _bullet
+
+export(PackedScene) var _partc
+onready var partc = _partc
 
 func _physics_process(delta):
 	if target != null:
