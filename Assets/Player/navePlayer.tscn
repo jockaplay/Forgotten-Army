@@ -160,7 +160,7 @@ process_material = SubResource( 25 )
 [node name="nave" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = SubResource( 19 )
-frame = 7
+frame = 5
 playing = true
 
 [node name="naveEffect" type="Sprite" parent="."]
